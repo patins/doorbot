@@ -38,9 +38,8 @@ class PiDoorController(DoorController):
         self.pin = pin
         super().__init__(unlock_time)
     def lock(self):
-        pi.write(self.pin, 1)
+        self.pi.write(self.pin, 1)
     def _unlock(self):
-        pi.write(self.pin, 0)
-        tornado.ioloop.IOLoop.instance().call_later()
+        self.pi.write(self.pin, 0)
     def is_locked(self):
         return self.pi.read(self.pin) == 1
