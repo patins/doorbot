@@ -1,19 +1,20 @@
-import tornado.ioloop
+from tornado.ioloop import IOLoop
 import time
 
 class DoorController:
     def __init__(self, unlock_time):
         self.current_timeout = None
         self.unlock_time = unlock_time
+        self.io_loop = IOLoop.current()
     def lock(self):
         pass
     def _unlock(self):
         pass
     def unlock(self):
         if self.current_timeout:
-            tornado.ioloop.IOLoop.instance().remove_timeout(self.current_timeout)
+            self.io_loop.remove_timeout(self.current_timeout)
         self._unlock()
-        self.current_timeout = tornado.ioloop.IOLoop.instance().add_timeout(time.time() + self.unlock_time, self.lock)
+        self.current_timeout = IOLoop.current().add_timeout(time.time() + self.unlock_time, self.lock)
     def is_locked(self):
         pass
 
