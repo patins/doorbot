@@ -1,4 +1,4 @@
-doorbot
+doorbot [![Build Status](https://travis-ci.org/patins/doorbot.svg?branch=master)](https://travis-ci.org/patins/doorbot)
 ========
 a simple bot that listens to groupme and opens the door when asked
 

@@ -2,5 +2,7 @@ language: python
 python:
   - "3.5"
 cache: pip
-install: "pip install -r requirements.txt"
+install:
+  - pip install -r requirements.txt
+  - cp config.example.py config.py
 script: python -m tornado.testing tests
