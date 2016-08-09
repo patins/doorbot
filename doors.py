@@ -38,6 +38,7 @@ class PiDoorController(DoorController):
         self.pi = pigpio.pi()
         self.pin = pin
         super().__init__(unlock_time)
+        self.lock()
     def lock(self):
         self.pi.write(self.pin, 1)
     def _unlock(self):
