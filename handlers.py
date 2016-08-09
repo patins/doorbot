@@ -13,7 +13,6 @@ class GroupMeMessageHandler:
             if time.time() - self.last_sent > 10: # TODO move to config
                 self.messager.send_message("Unlocking now")
                 self.last_sent = time.time()
-        """
         elif "lock" in message:
             locked_state = self.controller.is_locked()
             self.controller.lock()
@@ -23,4 +22,3 @@ class GroupMeMessageHandler:
                 else:
                     self.messager.send_message("Locking now")
                 self.last_sent_lock = time.time()
-        """
